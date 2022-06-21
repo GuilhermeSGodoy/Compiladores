@@ -31,9 +31,9 @@ Um exemplo do comando acima utilizado para a execução do programa:
 
 **java -jar C:\Compiladores\t1-1.0-SNAPSHOT-jar-with-dependencies.jar C:\Compiladores\teste.txt C:\Compiladores\saida.txt**
 
-Durante o desenvolvimento deste trabalho, foram utilizados os casos de teste disponibilizados pelo professor, que podem ser encontrados [aqui](https://drive.google.com/file/d/1YYJNgtYr85LETqUpB30SBil2p0GIQhVp/view).
+Durante o desenvolvimento deste trabalho, foram utilizados os casos de teste disponibilizados pelo professor, que podem ser encontrados [aqui](https://drive.google.com/file/d/1Q2J-eIzQ199C4dzpZikBTZvXfYw5YIXv/view?usp=sharing).
 
-Nele, podem ser baixados os casos de teste que serão utilizados nas verificações do programa (como o segundo argumento do comando especificado acima). Também podem ser encontrados os arquivos com as saídas esperadas para cada caso para conferências manuais dos resultados.
+Neste link, podem ser baixados os casos de teste que serão utilizados nas verificações do programa (como o segundo argumento do comando especificado acima). Também podem ser encontrados os arquivos com as saídas esperadas para cada caso para conferências manuais dos resultados.
 
 **Obs: é de extrema importância que sejam utilizados os arquivos apresentados acimas como os casos de teste, pois eles estão adequados para a gramática estabelecida no programa. Caso necessário, pode ser criado um novo arquivo para testes, desde que obedeça a gramática da linguagem. Caso deseje testar novos casos em uma gramática diferente, todo o arquivo t1Lex.g4 deverá ser ajustado.**
 
