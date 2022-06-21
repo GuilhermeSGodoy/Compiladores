@@ -10,11 +10,11 @@ O arquivo .rar do projeto pode ser encontrado [aqui](https://drive.google.com/fi
 
 Após ser baixado e descompactado, ele pode ser aberto no NetBeans para melhor visualização.
 
-![alt text](https://github.com/GuilhermeSGodoy/images/blob/main/compiladores-t1/1.png)
+![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T1/doc-images/1.png)
 
 Caso novas alterações sejam feitas, o programa deve ser construído novamente para que as mudanças sejam efetivadas.
 
-![alt text](https://github.com/GuilhermeSGodoy/images/blob/main/compiladores-t1/2.png)
+![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T1/doc-images/2.png)
 
 Isto não é necessário para sua execução, entretanto. Para executá-lo, basta localizar o arquivo **t1-1.0-SNAPSHOT-jar-with-dependencies.jar** na pasta _target_. Por questões de conveniência, talvez seja necessário copiar este arquivo para um diretório de melhor acesso, considerando que será necessária a utilização de linhas de comando nos passos a seguir.
 
@@ -37,7 +37,7 @@ Nele, podem ser baixados os casos de teste que serão utilizados nas verificaç�
 
 **Obs: é de extrema importância que sejam utilizados os arquivos apresentados acimas como os casos de teste, pois eles estão adequados para a gramática estabelecida no programa. Caso necessário, pode ser criado um novo arquivo para testes, desde que obedeça a gramática da linguagem. Caso deseje testar novos casos em uma gramática diferente, todo o arquivo t1Lex.g4 deverá ser ajustado.**
 
-![alt text](https://github.com/GuilhermeSGodoy/images/blob/main/compiladores-t1/3.png)
+![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T1/doc-images/3.png)
 
 ## Sobre a gramática
 
