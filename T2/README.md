@@ -54,53 +54,52 @@ A gramática utilizada no desenvolvimento deste trabalho foi a especificada no a
 
 Após isso, foi definido o restante da gramática para este trabalho:
 
-- programa: 
-- declaracoes: 
-- decl_local_global: 
-- declaracao_local: 
-- variavel: 
-- identificador: 
-- dimensao: 
-- tipo: 
-- tipo_basico: 
-- tipo_basico_ident: 
-- tipo_estendido: 
-- valor_constante: 
-- registro: 
-- declaracao_global: 
-- parametro: 
-- parametros: 
-- corpo: 
-- cmd: 
-- cmdLeia: 
-- cmdEscreva: 
-- cmdSe: 
-- cmdCaso: 
-- cmdPara: 
-- cmdEnquanto: 
-- cmdFaca: 
-- cmdAtribuicao: 
-- cmdChamada: 
-- cmdRetorne: 
-- selecao: 
-- item_selecao: 
-- constantes: 
-- numero_intervalo: 
-- op_unario: 
-- exp_aritmetica: 
-- termo: 
-- fator: 
-- op1: 
-- op2: 
-- op3: 
-- parcela: 
-- parcela_unario: 
-- parcela_nao_unario: 
-- exp_relacional: 
-- op_relacional: 
-- expressao: 
-- termo_logico: 
-- fator_logico: 
-- parcela_logica: 
-- op_logico_1: 
-- op_logico_2: 
+- programa: conjunto de declarações seguido pelo corpo do programa, que é delimitado pelas palavras-chave 'algoritmo' e 'fim_algoritmo'.
+- declaracoes: conjunto de zero ou mais declarações locais OU globais.
+- decl_local_global: conjunto de declarações locais OU globais.
+- declaracao_local: palavra-chave 'declare' seguida por uma variável; a palavra-chave 'constante' seguida por um identificador, um tipo básico e um valor; ou uma definição de um identificador de algum tipo.
+- variavel: conjunto de um ou mais identificadores (separador por vírgula) de um determinado tipo.
+- identificador: conjunto de zero ou mais identificadores (IDENT foi definido no tópico anterior) com uma determinada dimensão (usada na declaração de arranjos).
+- dimensao: conjunto de zerou ou mais expressões aritméticas entre colchetes.
+- tipo: um tipo pode ser um registro ou um tipo estendido.
+- tipo_basico: literal, inteiro, real e lógico, tipos básicos para o funcionamentos dos algoritmos.
+- tipo_basico_ident: um dos tipos básicos ou um novo identificador.
+- valor_constante: uma constante pode ser uma cadeira, um número inteiro ou real, ou um valor lógico.
+- registro: conjunto de zero ou mais variáveis delimitadas pelas palavras-chave 'registro' e 'fim_registro'.
+- declaracao_global: definição de um procedimento OU uma função, que são conjuntos de parâmetros (opcionais), um conjunto de zero ou mais declarações locais e um conjuntoo de zero ou mais locais, delimitados por suas respectivas palavras-chave.
+- parametro: palavra-chave 'var' (opcional), seguida por um conjunto de um ou mais identificadores com um determinado tipo.
+- parametros: conjunto de um ou mais parâmetros separados por vírgula.
+- corpo: corpo do programa, definido como um conjunto de zero ou mais declarações locais e um conjunto de zero ou mais comandos.
+- cmd: identifica os comandos da linguagem, que serão especificados a seguir.
+- cmdLeia: palavra-chave 'leia' seguida por um conjunto de um ou mais identificadores separados por vírgula.
+- cmdEscreva: palavra-chave 'escreva' seguida por um conjunto de um ou mais expressões separadas por vírgula.
+- cmdSe: palavra-chave 'se' seguida por uma expressão, que é seguida pela palavra-chave 'entao', delimitando um conjunto de zero ou mais comandos, além da palavra-chave 'senao' e seus comandos, finalizado pela palavra-chave 'fim_se'.
+- cmdCaso: palavra-chave 'caso' seguida por uma expressão aritmética, de modo que a palavra-chave 'seja' delimite uma seleção de argumentos, além de um valor padrão opcional.
+- cmdPara: palavra-chave 'para' seguida por um identificador que recebe uma expressão aritmética, delimitando um intervalo com a palavra-chave 'ate', responsável por repetir um conjunto de zero ou mais comandos tantas vezes quanto forem necessárias para a finalização do loop.
+- cmdEnquanto: palavra-chave 'enquanto' seguida por uma expressão e um conjunto de zero ou mais comandos delimitados pelas palavras-chave 'faca' e 'fim_enquanto'.
+- cmdFaca: palavra-chave 'faca' seguida por um conunto de zero ou mais comandos, repetindo uma determinada expressão com o auxílio da palavra-chave 'ate'.
+- cmdAtribuicao: identificador recebendo uma determinada expressão com o auxílio do símbolo de atribuição '<-'.
+- cmdChamada: identificador que recebe um conjunto de uma ou mais expressões separados por vírgulas entre parênteses.
+- cmdRetorne: palavra-chave 'retorne' seguida por uma expressão.
+- selecao: conjunto de zero ou mais itens.
+- item_selecao: constantes seguidas por um conjunto de zero ou mais comandos.
+- constantes: conjunto de um ou mais números separados por vírgula. 
+- numero_intervalo: número inteiro formando, opcionalmente, um intervalo através do símbolo '..' (os números podem ser valores negativos).
+- op_unario: operador de subtração, para a representação de um valor negativo.
+- exp_aritmetica: termo seguido por zero ou mais operadores e termos.
+- termo: fator seguido por zero ou mais operadores e fatores
+- fator: parcela seguida por zero ou mais operadores e novas parcelas. É importante notar que "exp_aritmetica", "termo", "fator" e os operadores definidos a seguir são os responsáveis pela precedência de operações matemáticas no programa.
+- op1: operações de adição e subtração.
+- op2: operações de multiplicação e divisão.
+- op3: operação de módulo.
+- parcela: parcela unária (que pode ser negativa ou não) ou uma parcela não unária.
+- parcela_unario: um identificador; um identificador com um conjunto de uma ou mais expressões entre parênteses; um número inteiro; um número real; ou uma expressão.
+- parcela_nao_unario: símbolo '&' seguido por um identificador ou uma cadeia (definida no tópico anterior) de caracteres.
+- exp_relacional: expressão aritmética seguida, opcionalmente, por um operador relacional e uma outra expressão aritmética.
+- op_relacional: operadores relacionadis de igualdade, diferença e maior ou menor (ou igual) que.
+- expressao: conjunto de um ou mais termos lógicos seguidos por operadores lógicos.
+- termo_logico: conjunto de um ou mais fatores lógicos seguidos por operadores lógicos.
+- fator_logico: uma parcela lógica que pode ser negada com o uso da palavra-chave 'nao' (opcional).
+- parcela_logica: valores verdadeiro ou falso ou uma expressão relacional.
+- op_logico_1: operador OU.
+- op_logico_2: operador E. De forma semelhante à expressão aritmética, estas últimas regras definiram uma precedência entre as operações lógicas.
