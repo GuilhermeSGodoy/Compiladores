@@ -37,4 +37,70 @@ Um exemplo do comando acima utilizado para a execução do programa:
 
 **Obs: é de extrema importância que sejam utilizados os arquivos apresentados acima como os casos de teste, pois eles estão adequados para a gramática estabelecida no programa. Caso necessário, pode ser criado um novo arquivo para testes, desde que obedeça a gramática da linguagem. Caso deseje testar novos casos em uma gramática diferente, todo o arquivo t2Sint.g4 e definições nas classes Java deverão ser ajustadas.**
 
-(imagem da localização do t2Sint.g4 no netbeans)
+![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T2/doc-images/1.png)
+
+## Sobre a gramática
+
+A gramática utilizada no desenvolvimento deste trabalho foi a especificada no arquivo de gramática disponibilizado acima. Para conferir a gramática do programa em mais detalhes, recomenda-se a visualização do arquivo [t2Sint.g4](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T2/src/main/antlr4/br/ufscar/dc/compiladores/t2/t2Sint.g4). Abaixo, serão apresentadas algumas noções importantes para sua compreensão. A princípio, algumas definições utilizadas no trabalho anterior foram preservadas:
+
+- NUM_INT e NUM_REAL: nestes padrões são especificados os formatos de valores inteiros e reais;
+- IDENT: este padrão é responsável por definir o que pode ser considerado um identificador (ou variável) dentro dos algoritmos. Identificadores são cadeias iniciadas por letras e seguidar por letras ou números, além do símbolo de _;
+- CADEIA: este padrão identifica uma cadeia de caracteres (ou string) dentro dos algoritmos. As cadeias são definidas por sequências de quaisquer símbolos que estão entre aspas duplas;
+- COMENTARIO: os comentários são ignorados pelo analisador léxico, de modo que não geram tokens. São identificados por caracteres que estão entre chaves;
+- WS: define espaços em branco, quebras de linha e tabulações, que também são ignorados pelo analisar léxico;
+- CADEIA_ERRADA: semelhante ao que foi apresentado em CADEIA, porém, desta vez, identifica uma cadeia que não foi fechada adequadamente e exibe uma mensagem de erro com o auxílio da função _erroLexico()_, além de interromper a execução do programa.
+- COMENTARIO_ERRADO: semelhante ao que foi apresentado em CADEIA_ERRADA, com a diferença de que, desta vez, identifica comentários que não foram devidamente fechados;
+- ERRO: semelhante ao que foi apresentado nos dois padrões anteriores, mas, desta vez, identifica caracteres que não foram definidos na gramática (como o símbolo de $).
+
+Após isso, foi definido o restante da gramática para este trabalho:
+
+- programa: 
+- declaracoes: 
+- decl_local_global: 
+- declaracao_local: 
+- variavel: 
+- identificador: 
+- dimensao: 
+- tipo: 
+- tipo_basico: 
+- tipo_basico_ident: 
+- tipo_estendido: 
+- valor_constante: 
+- registro: 
+- declaracao_global: 
+- parametro: 
+- parametros: 
+- corpo: 
+- cmd: 
+- cmdLeia: 
+- cmdEscreva: 
+- cmdSe: 
+- cmdCaso: 
+- cmdPara: 
+- cmdEnquanto: 
+- cmdFaca: 
+- cmdAtribuicao: 
+- cmdChamada: 
+- cmdRetorne: 
+- selecao: 
+- item_selecao: 
+- constantes: 
+- numero_intervalo: 
+- op_unario: 
+- exp_aritmetica: 
+- termo: 
+- fator: 
+- op1: 
+- op2: 
+- op3: 
+- parcela: 
+- parcela_unario: 
+- parcela_nao_unario: 
+- exp_relacional: 
+- op_relacional: 
+- expressao: 
+- termo_logico: 
+- fator_logico: 
+- parcela_logica: 
+- op_logico_1: 
+- op_logico_2: 
