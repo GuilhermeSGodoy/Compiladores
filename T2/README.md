@@ -1,1 +1,1 @@
-# T1: Analisador Sintático
+# T2: Analisador Sintático
