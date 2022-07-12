@@ -35,7 +35,7 @@ Durante o desenvolvimento deste trabalho, foram utilizados os casos de teste dis
 
 Neste link, podem ser baixados os casos de teste que serão utilizados nas verificações do programa (como o segundo argumento do comando especificado acima). Também podem ser encontrados os arquivos com as saídas esperadas para cada caso para conferências manuais dos resultados.
 
-**Obs: é de extrema importância que sejam utilizados os arquivos apresentados acimas como os casos de teste, pois eles estão adequados para a gramática estabelecida no programa. Caso necessário, pode ser criado um novo arquivo para testes, desde que obedeça a gramática da linguagem. Caso deseje testar novos casos em uma gramática diferente, todo o arquivo t1Lex.g4 deverá ser ajustado.**
+**Obs: é de extrema importância que sejam utilizados os arquivos apresentados acima como os casos de teste, pois eles estão adequados para a gramática estabelecida no programa. Caso necessário, pode ser criado um novo arquivo para testes, desde que obedeça a gramática da linguagem. Caso deseje testar novos casos em uma gramática diferente, todo o arquivo t1Lex.g4 deverá ser ajustado.**
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T1/doc-images/3.png)
 
