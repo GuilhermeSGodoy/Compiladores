@@ -6,7 +6,7 @@ Neste repositório encontra-se o primeiro trabalho da disciplina Construção de
 
 O trabalho foi desenvolvido utilizando a IDE NetBeans. Deste modo, para preservar sua estrutura original e facilitar seu posterior uso por outros usuários, espera-se que ele seja executado com o próprio NetBeans. Durante o desenvolvimento, foi utilizada a versão 13 do NetBeans e a versão 18.0.1.1 do Java. Espera-se que seja possível executá-lo em versões mais recentes de ambos. O programa foi desenvolvido no Windows 10 e suas instruções de uso também serão apresentadas neste SO.
 
-O arquivo executável do projeto pode ser encontrado [aqui](https://drive.google.com/file/d/1VO09wbgifq8pvIm9gHNnliy7Et5VfLOA/view?usp=sharing).
+O arquivo .rar do projeto pode ser encontrado [aqui](https://drive.google.com/file/d/1VO09wbgifq8pvIm9gHNnliy7Et5VfLOA/view?usp=sharing).
 
 Após ser baixado e descompactado, ele pode ser aberto no NetBeans para melhor visualização.
 
