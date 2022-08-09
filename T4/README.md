@@ -9,7 +9,7 @@ O trabalho foi desenvolvido com a IDE NetBeans. Deste modo, para preservar sua e
 Para a execução e melhor compreensão do trabalho, são necessários:
 - [O arquivo .rar do projeto](https://drive.google.com/file/d/1PQ6uk6qinhqn1iEBL80KkJOdX0oUqKss/view?usp=sharing);
 - [Os casos de teste disponibilizados pelo professor](https://drive.google.com/file/d/1Q2J-eIzQ199C4dzpZikBTZvXfYw5YIXv/view?usp=sharing), com suas respectivas saídas esperadas para posterior comparação;
-- [Definição da gramática utilizada](https://drive.google.com/file/d/1Cv9m52E5r72jb3sLI04Jyqc29Cykn5RQ/view?usp=sharing). Esta gramática foi adaptada dentro das definições do ANTLR e pode ser visualizada no arquivo [t3Gram.g4](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T4/src/main/antlr4/br/ufscar/dc/compiladores/t4/t4Gram.g4);
+- [Definição da gramática utilizada](https://drive.google.com/file/d/1Cv9m52E5r72jb3sLI04Jyqc29Cykn5RQ/view?usp=sharing). Esta gramática foi adaptada dentro das definições do ANTLR e pode ser visualizada no arquivo [t4Gram.g4](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T4/src/main/antlr4/br/ufscar/dc/compiladores/t4/t4Gram.g4);
 - [Descrição da gramática definida com o ANTLR](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T2/README.md). Como não foram feitas alterações na gramática, maiores informações podem ser encontradas na descrição do segundo trabalho.
 
 Após ser baixado e descompactado, o programa pode ser aberto no NetBeans para melhor visualização e manutenção.
