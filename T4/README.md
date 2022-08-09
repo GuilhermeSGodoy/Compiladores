@@ -28,8 +28,8 @@ Com o arquivo em um diretório de fácil acesso, abra uma janela do _prompt de c
 
 Onde:
 - O diretório do arquivo .jar é a localização do arquivo **t4-1.0-SNAPSHOT-jar-with-dependencies.jar**;
-- O diretório do caso de teste é a localização de um arquivo.txt que contém um algoritmo que será analisado pelo programa;
-- O diretório do arquivo de saída é a localização do arquivo.txt onde será apresentado o resultado da análise. Caso o arquivo não exista ainda, ele será criado.
+- O diretório do caso de teste é a localização de um arquivo .txt que contém um algoritmo que será analisado pelo programa;
+- O diretório do arquivo de saída é a localização do arquivo .txt onde será apresentado o resultado da análise. Caso o arquivo não exista ainda, ele será criado.
 
 Um exemplo do comando acima utilizado para a execução do programa:
 
