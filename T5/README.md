@@ -33,6 +33,6 @@ Onde:
 
 Um exemplo do comando acima utilizado para a execução do programa:
 
-**java -jar C:\Compiladores\t4-1.0-SNAPSHOT-jar-with-dependencies.jar C:\Compiladores\teste.txt C:\Compiladores\saida.txt**
+**java -jar C:\Compiladores\t5-1.0-SNAPSHOT-jar-with-dependencies.jar C:\Compiladores\teste.txt C:\Compiladores\saida.txt**
 
 **Obs: é de extrema importância que sejam utilizados os arquivos apresentados acima como os casos de teste, pois eles estão adequados para a gramática estabelecida no programa. Caso necessário, pode ser criado um novo arquivo para testes, desde que obedeça a gramática da linguagem. Caso deseje testar novos casos em uma gramática diferente, todo o arquivo t4Gram.g4 e definições nas classes Java deverão ser ajustadas.**
