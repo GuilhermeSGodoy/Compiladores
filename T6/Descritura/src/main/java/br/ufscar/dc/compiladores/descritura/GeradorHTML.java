@@ -51,6 +51,8 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         saida.append(converteTitulo(removeAspas(ctx.historia().nome().CADEIA().getText())));
         saida.append("</title>\n");
         saida.append("<meta charset=\"UTF-8\">\n");
+        saida.append("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n");
+        saida.append("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js\"></script>\n");
         saida.append("</head>\n");
         
         // Atributos básicos pré-definidos de css para o html.
@@ -59,17 +61,34 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         saida.append("border: 1px solid black;\n");
         saida.append("border-collapse: collapse;\n");
         saida.append("}\n");
+        
+        saida.append("th, td {\n");
+        saida.append("padding-left: 5px;\n");
+        saida.append("padding-right: 5px;\n");
+        saida.append("padding-top: 5px;\n");
+        saida.append("padding-bottom: 5px;\n");
+        saida.append("}\n");
+        
+        saida.append("h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {\n");
+        saida.append("font-family: \"Noto Serif\", sans-serif;\n");
+        saida.append("font-weight: bold\n");
+        saida.append("}\n");
+        
+        saida.append("p, li, th, td {\n");
+        saida.append("font-family: \"Noto Serif\", sans-serif;\n");
+        saida.append("}\n");
+        
         saida.append("</style>\n");
         saida.append("<body>\n");
         
         // Exibição das informações básicas da história.
-        saida.append("<div>\n");
+        saida.append("<div class=\"container-fluid p-5 bg-success text-white text-center\">\n");
         
         // Exibição do nome da história como título principal.
-        saida.append("<h1>");
+        saida.append("<h1 class=\"h1\">");
         saida.append(converteTitulo(removeAspas(ctx.historia().nome().CADEIA().getText())));
         saida.append("</h1>\n");
-        saida.append("<h2>");
+        saida.append("<h4 class=\"h4\">");
 
         // Exibição dos nomes dos autores.
         int qtdeAutores = ctx.historia().nomeAutor().get(0).CADEIA().size();
@@ -89,11 +108,11 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             saida.append(converteTitulo(removeAspas(ctx.historia().nomeAutor().get(0).CADEIA().get(0).getText())));
         }
         
-        saida.append("</h2>\n");
+        saida.append("</h4>\n");
         
         // Verificação da existência dos atributos opcionais.
         if (ctx.historia().versaoRascunho() != null) {
-            saida.append("<p> Versão do Rascunho: ");
+            saida.append("<br><p> Versão do Rascunho: ");
             saida.append(removeAspas(ctx.historia().versaoRascunho().CADEIA().getText()));
             saida.append("</p>\n");
         }
@@ -106,15 +125,28 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         
         saida.append("</div>\n");
         
-        // Inclusão de um índice para as seções da página gerada.
-        saida.append("<div>\n");
-        saida.append("<h3>Índice</h3>\n");
-        saida.append("<a href=\"#Estrutura\">Estrutura</a><br>\n");
-        saida.append("<a href=\"#Sinopse\">Sinopse</a><br>\n");
-        saida.append("<a href=\"#Personagens\">Personagens</a><br>\n");
-        saida.append("<a href=\"#Capitulos\">Capítulos</a><br>\n");
-        saida.append("<a href=\"#InfoGerais\">Informações Gerais</a><br>\n");
+        // Inclusão de uma barra de navegação para as seções da página gerada.
+        saida.append("<nav class=\"navbar navbar-expand-sm bg-dark navbar-dark\">\n");
+        saida.append("<div class=\"container-fluid\">\n");
+        saida.append("<ul class=\"navbar-nav\">\n");
+        saida.append("<li class=\"nav-item\">\n");
+        saida.append("<a class=\"nav-link active\" href=\"#Estrutura\">Estrutura</a>\n");
+        saida.append("</li>\n");
+        saida.append("<li class=\"nav-item\">\n");
+        saida.append("<a class=\"nav-link\" href=\"#Sinopse\">Sinopse</a>\n");
+        saida.append("</li>\n");
+        saida.append("<li class=\"nav-item\">\n");
+        saida.append("<a class=\"nav-link\" href=\"#Personagens\">Personagens</a>\n");
+        saida.append("</li>\n");
+        saida.append("<li class=\"nav-item\">\n");
+        saida.append("<a class=\"nav-link\" href=\"#Capitulos\">Capítulos</a>\n");
+        saida.append("</li>\n");
+        saida.append("<li class=\"nav-item\">\n");
+        saida.append("<a class=\"nav-link\" href=\"#InfoGerais\">Informações Gerais</a>\n");
+        saida.append("</li>\n");
+        saida.append("</ul>\n");
         saida.append("</div>\n");
+        saida.append("</nav>\n");
         
         // Geração do código referente às partes principais do programa.
         visitEstrutura(ctx.estrutura());
@@ -129,38 +161,46 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         if (!DescrituraUtils.errosSemanticos.isEmpty()) {
             // Caso tenham sido identificados erros de apenas um tipo (Estrutura, Personagem ou Capítulo),
             // é exibida apenas a mensagem adequada.
+            saida.append("<div class=\"container-fluid p-5 bg-danger text-white text-center\">\n");
+            saida.append("<div class=\"container mt-5\">\n");
             if (DescrituraSemantico.errosEncontrados.size() == 1) {
                 if (DescrituraSemantico.errosEncontrados.get(0) == TipoDescritura.ESTRUTURA) {
-                    saida.append("<h3>Atenção! Foi encontrado um erro na declaração da estrutura. Por favor, verifique o arquivo log.txt.</h3>\n");
+                    saida.append("<h3 class=\"h3\">Atenção! Foi encontrado um erro na declaração da estrutura. Por favor, verifique o arquivo log.txt.</h3>\n");
                 } else if (DescrituraSemantico.errosEncontrados.get(0) == TipoDescritura.PERSONAGEM) {
-                    saida.append("<h3>Atenção! Foi encontrado um erro na declaração dos personagens. Por favor, verifique o arquivo log.txt.</h3>\n");
+                    saida.append("<h3 class=\"h3\">Atenção! Foi encontrado um erro na declaração dos personagens. Por favor, verifique o arquivo log.txt.</h3>\n");
                 } else if (DescrituraSemantico.errosEncontrados.get(0) == TipoDescritura.CAPITULO) {
-                    saida.append("<h3>Atenção! Foi encontrado um erro na declaração dos capítulos. Por favor, verifique o arquivo log.txt.</h3>\n");
+                    saida.append("<h3 class=\"h3\">Atenção! Foi encontrado um erro na declaração dos capítulos. Por favor, verifique o arquivo log.txt.</h3>\n");
                 }
             } else {
                 // Caso tenham sido identificados erros de mais de um tipo, é exibida uma mensagem personalizada
                 // em forma de lista.
-                saida.append("<h3>Atenção! Foram encontrados erros nos seguintes trechos do código de entrada:</h3>");
-                saida.append("<ul>");
+                saida.append("<h3 class=\"h3\">Atenção! Foram encontrados erros nos seguintes trechos do código de entrada:</h3>");
                 
+                saida.append("<p>");
                 if (DescrituraSemantico.errosEncontrados.contains(TipoDescritura.ESTRUTURA)) {
-                    saida.append("<li>Declaração de estrutura</li>");
+                    saida.append("Declaração de estrutura<br>");
                 }
                 
                 if (DescrituraSemantico.errosEncontrados.contains(TipoDescritura.PERSONAGEM)) {
-                    saida.append("<li>Declaração de personagens</li>");
+                    saida.append("Declaração de personagens<br>");
                 }
                 
                 if (DescrituraSemantico.errosEncontrados.contains(TipoDescritura.CAPITULO)) {
-                    saida.append("<li>Declaração de capítulos</li>");
+                    saida.append("Declaração de capítulos");
                 }
+                saida.append("</p>\n");
                 
-                saida.append("</ul>");
-                saida.append("<h3>Por favor, verifique o arquivo log.txt.</h3>");
+                saida.append("<h6 class=\"h6\">Por favor, verifique o arquivo log.txt.</h6>");
             }
+            saida.append("</div>\n");
+            saida.append("</div>\n");
         // Caso não tenham sido identificados erros, esta informação também é passada ao usuário.   
         } else {
-            saida.append("<h3>Não foram identificados erros no programa de entrada.</h3>\n");
+            saida.append("<div class=\"container-fluid p-5 bg-primary text-white text-center\">\n");
+            saida.append("<div class=\"container mt-5\">\n");
+            saida.append("<h3 class=\"h3\">Não foram identificados erros no programa de entrada.</h3>\n");
+            saida.append("</div>\n");
+            saida.append("</div>\n");
         }
                 
         saida.append("</body>\n");
@@ -171,14 +211,16 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
     @Override
     public Void visitEstrutura(gramaticaParser.EstruturaContext ctx) {
         // Exibição das informações referentes à estrutura.
-        saida.append("<div>\n");
-        saida.append("<h3 id=\"Estrutura\">Estrutura: ");
+        saida.append("<div class=\"container mt-5\">\n");
+        saida.append("<h3 id=\"Estrutura\" class=\"h3\">Estrutura</h3><br>\n");
+        saida.append("<h4 class=\"text-center\">");
         saida.append(converteTitulo(removeAspas(ctx.nome().CADEIA().getText())));
-        saida.append("</h3>\n");
+        saida.append("</h4><br>\n");
         
         // Exibição dos arquétipos.
-        saida.append("<div>\n");
-        saida.append("<h4>Arquétipos</h4>\n");
+        saida.append("<div class=\"d-flex aligns-items-center justify-content-center\">\n");
+        saida.append("<div class=\"col-sm-4\">\n");
+        saida.append("<h4 class=\"h4\">Arquétipos</h4>\n");
         saida.append("<ul>\n");
         
         int qtdeArq = ctx.arquetipos().CADEIA().size();
@@ -199,8 +241,8 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         saida.append("</div>\n");
         
         // Exibição dos elementos.
-        saida.append("<div>\n");
-        saida.append("<h4>Elementos</h4>\n");
+        saida.append("<div class=\"col-sm-4\">\n");
+        saida.append("<h4 class=\"h4\">Elementos</h4>\n");
         saida.append("<ul>\n");
                 
         int qtdeEle = ctx.elementos().CADEIA().size();
@@ -220,6 +262,8 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         saida.append("</ul>\n");
         saida.append("</div>\n");
         saida.append("</div>\n");
+        saida.append("</div>\n");
+        saida.append("<hr style=\"width:90%;text-align:left;margin-left:5%;\">\n");
         
         return null;
     }
@@ -227,17 +271,20 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
     @Override
     public Void visitHistoria(gramaticaParser.HistoriaContext ctx) {
         // Exibição das informações referentes à história.
-        saida.append("<div>\n");
-        saida.append("<h3 id=\"Sinopse\">Sinopse</h3>\n");
+        saida.append("<div class=\"container mt-5\">\n");
+        saida.append("<h3 id=\"Sinopse\" class=\"h3\">Sinopse</h3><br>\n");
         saida.append("<p>");
         // Para o texto da sinopse, converte a primeira letra para maiúscula.
         saida.append(removeAspas(ctx.sinopse().CADEIA().getText()).substring(0,1).toUpperCase());
         saida.append(removeAspas(ctx.sinopse().CADEIA().getText()).substring(1));
         saida.append("</p>\n");
+        saida.append("</div><br>\n");
+        saida.append("<hr style=\"width:90%;text-align:left;margin-left:5%;\">\n");
         
         // Exibição de uma lista com o nome dos personagens e seus arquétipos.
-        saida.append("<div>\n");    
-        saida.append("<h3 id=\"Personagens\">Personagens</h3>\n");
+        saida.append("<div class=\"container mt-5\">\n");
+        saida.append("<div>\n");
+        saida.append("<h3 id=\"Personagens\" class=\"h3\">Personagens</h3><br>\n");
         saida.append("<ul>\n");
         
         // Loop utilizado para percorrer os personagens que foram declarados.
@@ -247,19 +294,22 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         
         saida.append("</ul>\n");
         saida.append("</div>\n");
+        saida.append("</div><br>\n");
+        saida.append("<hr style=\"width:90%;text-align:left;margin-left:5%;\">\n");
         
         // Exibição de uma tabela com as informações dos capítulos.
+        saida.append("<div class=\"container mt-5\">\n");
         saida.append("<div>\n");
-        saida.append("<h3 id=\"Capitulos\">Capítulos</h3>\n");
+        saida.append("<h3 id=\"Capitulos\" class=\"h3\">Capítulos</h3><br>\n");
         saida.append("<table style=\"width:100%\">\n");
         
         // Declaração do cabeçalho da tabela.
         saida.append("<tr>\n");
-        saida.append("<th>Nº do Capítulo</th>\n");
-        saida.append("<th>Nome do Capítulo</th>\n");
-        saida.append("<th>Elementos</th>\n");
-        saida.append("<th>Personagens</th>\n");
-        saida.append("<th>Resumo</th>\n");
+        saida.append("<th class=\"text-center\">Nº do Capítulo</th>\n");
+        saida.append("<th class=\"text-center\">Nome do Capítulo</th>\n");
+        saida.append("<th class=\"text-center\">Elementos</th>\n");
+        saida.append("<th class=\"text-center\">Personagens</th>\n");
+        saida.append("<th class=\"text-center\">Resumo</th>\n");
         saida.append("</tr>\n");
         
         // Variável auxiliar utilizada para a contagem dos capítulos que são
@@ -270,7 +320,7 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         // uma nova linha da tabela.
         for (gramaticaParser.CapituloContext cap : ctx.capitulo()) {
             saida.append("<tr>\n");
-            saida.append("<td>");
+            saida.append("<td class=\"text-center\">");
             saida.append(qtdeCapTabela);
             saida.append("</td>\n");
             
@@ -283,7 +333,8 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         
         saida.append("</table>\n");
         saida.append("</div>\n");
-        saida.append("</div>\n");
+        saida.append("</div><br>\n");
+        saida.append("<hr style=\"width:90%;text-align:left;margin-left:5%;\">\n");
         
         return null;
     }
@@ -515,8 +566,8 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
     // Método criado no formato dos visitantes anteriores para exibir algumas informações adicionais
     // pertinentes.
     public Void visitInfoGeral(gramaticaParser.ProgramaContext ctx) {
-        saida.append("<div>\n");
-        saida.append("<h3 id=\"InfoGerais\">Informações Gerais</h3>\n");
+        saida.append("<div class=\"container mt-5\">\n");
+        saida.append("<h3 id=\"InfoGerais\" class=\"h3\">Informações Gerais</h3><br>\n");
         
         // A princípio, são exibidas informações sobre os capítulos e personagens em uma lista.
         saida.append("<p>A história tem ");
@@ -706,7 +757,7 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         }
         
         saida.append("</ul>\n");
-        saida.append("</div>\n");
+        saida.append("</div><br>\n");
         
         return null;
     }
