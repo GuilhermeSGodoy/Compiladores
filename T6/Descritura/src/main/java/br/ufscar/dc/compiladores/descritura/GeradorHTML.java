@@ -229,12 +229,20 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         for (int i = 0; i < qtdeArq; i++) {
             String nomeArqAux = converteTitulo(removeAspas(ctx.arquetipos().CADEIA().get(i).getText()));
             saida.append("<li>");
-            saida.append(nomeArqAux);
-            saida.append("</li>\n");
-            
+
             // Adiciona o arquétipo na tabela para efetuar verificações no caso de estar gerando um html
             // que contenha erros que ainda não foram corrigidos pelo usuário.
-            tabela.adicionar(nomeArqAux, TabelaDeSimbolos.TipoDescritura.ARQUETIPO);
+            if (!tabela.existe(nomeArqAux)) {
+                tabela.adicionar(nomeArqAux, TabelaDeSimbolos.TipoDescritura.ARQUETIPO);
+                saida.append(nomeArqAux);
+            // Caso o arquétipo já tenha sido declarado na estrutura, ele é exibido em destaque.
+            } else {
+                saida.append("<i>");
+                saida.append(nomeArqAux);
+                saida.append("</i>");
+            }
+            
+            saida.append("</li>\n");
         }
 
         saida.append("</ul>\n");
@@ -251,12 +259,20 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         for (int i = 0; i < qtdeEle; i++) {
             String nomeEleAux = converteTitulo(removeAspas(ctx.elementos().CADEIA().get(i).getText()));
             saida.append("<li>");
-            saida.append(nomeEleAux);
-            saida.append("</li>\n");
             
             // Adiciona o elemento na tabela para efetuar verificações no caso de estar gerando um html
             // que contenha erros que ainda não foram corrigidos pelo usuário.
-            tabela.adicionar(nomeEleAux, TabelaDeSimbolos.TipoDescritura.ELEMENTO);
+            if (!tabela.existe(nomeEleAux)) {
+                tabela.adicionar(nomeEleAux, TabelaDeSimbolos.TipoDescritura.ELEMENTO);
+                saida.append(nomeEleAux);
+            // Caso o arquétipo já tenha sido declarado na estrutura, ele é exibido em destaque.
+            } else {
+                saida.append("<i>");
+                saida.append(nomeEleAux);
+                saida.append("</i>");
+            }
+            
+            saida.append("</li>\n");            
         }
         
         saida.append("</ul>\n");
@@ -405,6 +421,10 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         // String auxiliar que armazena o nome do elemento.
         String elemAtual;
         
+        // Lista auxiliar que armazena os elementos do capítulo atual para
+        // verificar se houveram declarações repetidas.
+        List<String> elemCapAtual = new ArrayList<>();
+        
         // Caso haja mais do que um elemento, são feitas verificações para mostrá-los formatados
         // adequadamente.
         if (qtdeElem > 1) {
@@ -415,19 +435,30 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
 
                 // Converte o elemento para um título para as verificações seguintes.
                 elemAtual = converteTitulo(elemAtual);
-
+                
                 // A princípio, verifica se o elemento foi declarado.
                 if (tabela.existe(elemAtual)) {
-                    // Efetua uma verificação que identifica se o elemento atual é um elemento, de fato.
-                    // Caso não seja, o valor é exibido em destaque.
-                    if (tabela.verificar(elemAtual) != TipoDescritura.ELEMENTO) {
+                    // Adiciona o elemento na lista.
+                    if (!elemCapAtual.contains(elemAtual)) {
+                        elemCapAtual.add(elemAtual);
+                        
+                        // Efetua uma verificação que identifica se o elemento atual é um elemento, de fato.
+                        // Caso não seja, o valor é exibido em destaque.
+                        if (tabela.verificar(elemAtual) != TipoDescritura.ELEMENTO) {
+                            saida.append("<i>");
+                            saida.append(elemAtual);
+                            saida.append("</i>");
+                        // Caso realmente seja um elemento, o valor é exibido normalmente.
+                        } else {
+                            saida.append(elemAtual);
+                        }
+                        
+                    // Caso haja uma repetição na lista, o elemento é exibido em destaque.
+                    } else {
                         saida.append("<i>");
                         saida.append(elemAtual);
                         saida.append("</i>");
-                    // Caso realmente seja um elemento, o valor é exibido normalmente.
-                    } else {
-                        saida.append(elemAtual);
-                    }
+                    }              
                 // Caso o elemento não tenha sido declarado, também é exibido em destaque.
                 } else {
                     saida.append("<i>");
@@ -678,6 +709,17 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         for (TerminalNode ele : ctx.estrutura().elementos().CADEIA()) {
             elementos.add(removeAspas(ele.getText()));
         }
+        
+        // Lista auxiliar criada para armazenar os elementos na ordem na qual foram utilizados
+        // nos capítulos.
+        List<String> elemCapitulos = new ArrayList<>();
+        
+        // String auxiliar utilizada para armazenar o nome do elemento atual.
+        String elemAtual;
+        
+        // Flag auxiliar utilizada para identificar a necessidade de fechar uma tag que destaca
+        // uma linha repetida na lista de elementos, ocasionada por um erro no programa de entrada.
+        boolean fecha = false;
 
         // Usando uma lógica similar à verificação dos personagens e seus respectivos capítulos,
         // estes loops aninhados são utilizados para verificar os elementos pertencentes a cada
@@ -686,6 +728,18 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             // Lista auxiliar utilizada para obter os nomes dos capítulos nos quais o elemento
             // aparece.
             List<String> apareceCaps = new ArrayList<>();
+            
+            // Obtenção do elemento atual.
+            elemAtual = elementos.get(i);
+            
+            // Verificação necessária para o caso de o programa de entrada ter dois ou mais elementos
+            // repetidos, de modo que a saída em html mostre a linha em destaque (itálico)
+            if (!elemCapitulos.contains(elemAtual)) {
+                elemCapitulos.add(elemAtual);
+            } else {
+                saida.append("<i>");
+                fecha = true;
+            }
             
             saida.append("<li>");
             
@@ -708,7 +762,7 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             
             // String auxiliar utilizada para armazenar o nome do elemento atual capitalizado, para
             // exibição na saída.
-            String nomeSaida = converteTitulo(elementos.get(i));
+            String nomeSaida = converteTitulo(elemAtual);
             saida.append(nomeSaida);
             
             // Caso o elemento apareça em apenas um capítulo, é exibida uma mensagem no singular com
@@ -751,6 +805,11 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             }
             
             saida.append("</li>\n");
+            
+            // Quando for o caso, a tag <i> é fechada.
+            if (fecha) {
+                saida.append("</i>");
+            }
         }
         
         saida.append("</ul>\n");
