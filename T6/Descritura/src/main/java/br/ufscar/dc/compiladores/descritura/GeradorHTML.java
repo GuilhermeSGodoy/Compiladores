@@ -174,23 +174,23 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             } else {
                 // Caso tenham sido identificados erros de mais de um tipo, é exibida uma mensagem personalizada
                 // em forma de lista.
-                saida.append("<h3 class=\"h3\">Atenção! Foram encontrados erros nos seguintes trechos do código de entrada:</h3>");
+                saida.append("<h3 class=\"h3\">Atenção! Foram encontrados erros nos seguintes trechos do código de entrada:</h3>\n");
                 
                 saida.append("<p>");
                 if (DescrituraSemantico.errosEncontrados.contains(TipoDescritura.ESTRUTURA)) {
-                    saida.append("Declaração de estrutura<br>");
+                    saida.append("Declaração de estrutura<br>\n");
                 }
                 
                 if (DescrituraSemantico.errosEncontrados.contains(TipoDescritura.PERSONAGEM)) {
-                    saida.append("Declaração de personagens<br>");
+                    saida.append("Declaração de personagens<br>\n");
                 }
                 
                 if (DescrituraSemantico.errosEncontrados.contains(TipoDescritura.CAPITULO)) {
-                    saida.append("Declaração de capítulos");
+                    saida.append("Declaração de capítulos\n");
                 }
                 saida.append("</p>\n");
                 
-                saida.append("<h6 class=\"h6\">Por favor, verifique o arquivo log.txt.</h6>");
+                saida.append("<h6 class=\"h6\">Por favor, verifique o arquivo log.txt.</h6>\n");
             }
             saida.append("</div>\n");
             saida.append("</div>\n");
@@ -678,10 +678,7 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         for (TerminalNode ele : ctx.estrutura().elementos().CADEIA()) {
             elementos.add(removeAspas(ele.getText()));
         }
-        
-        // String auxiliar utilizada para armazenar o nome do elemento atual.
-        String eleAux;
-        
+
         // Usando uma lógica similar à verificação dos personagens e seus respectivos capítulos,
         // estes loops aninhados são utilizados para verificar os elementos pertencentes a cada
         // capítulo.

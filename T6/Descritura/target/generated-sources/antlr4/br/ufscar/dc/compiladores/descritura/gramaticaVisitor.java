@@ -29,6 +29,12 @@ public interface gramaticaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEstrutura(gramaticaParser.EstruturaContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link gramaticaParser#nome}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNome(gramaticaParser.NomeContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link gramaticaParser#arquetipos}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -46,12 +52,6 @@ public interface gramaticaVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitHistoria(gramaticaParser.HistoriaContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link gramaticaParser#nome}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNome(gramaticaParser.NomeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link gramaticaParser#nomeAutor}.
 	 * @param ctx the parse tree

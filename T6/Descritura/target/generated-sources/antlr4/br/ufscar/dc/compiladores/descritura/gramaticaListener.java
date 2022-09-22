@@ -38,6 +38,16 @@ public interface gramaticaListener extends ParseTreeListener {
 	 */
 	void exitEstrutura(gramaticaParser.EstruturaContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link gramaticaParser#nome}.
+	 * @param ctx the parse tree
+	 */
+	void enterNome(gramaticaParser.NomeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link gramaticaParser#nome}.
+	 * @param ctx the parse tree
+	 */
+	void exitNome(gramaticaParser.NomeContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link gramaticaParser#arquetipos}.
 	 * @param ctx the parse tree
 	 */
@@ -67,16 +77,6 @@ public interface gramaticaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitHistoria(gramaticaParser.HistoriaContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link gramaticaParser#nome}.
-	 * @param ctx the parse tree
-	 */
-	void enterNome(gramaticaParser.NomeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link gramaticaParser#nome}.
-	 * @param ctx the parse tree
-	 */
-	void exitNome(gramaticaParser.NomeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link gramaticaParser#nomeAutor}.
 	 * @param ctx the parse tree
