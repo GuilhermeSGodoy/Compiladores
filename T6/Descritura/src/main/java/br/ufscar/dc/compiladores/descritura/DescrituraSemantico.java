@@ -1,6 +1,7 @@
 package br.ufscar.dc.compiladores.descritura;
 
 import static br.ufscar.dc.compiladores.descritura.TabelaDeSimbolos.TipoDescritura;
+import static br.ufscar.dc.compiladores.descritura.DescrituraUtils.converteTitulo;
 import static br.ufscar.dc.compiladores.descritura.DescrituraUtils.adicionaErroSemLinha;
 import static br.ufscar.dc.compiladores.descritura.DescrituraUtils.adicionaErroSemantico;
 import static br.ufscar.dc.compiladores.descritura.DescrituraUtils.ordemElementos;
@@ -56,7 +57,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
         // Loop para percorrer os arquétipos que foram declarados.
         for (int i = 0; i < ctx.arquetipos().CADEIA().size(); i++) {
             // Obtenção do nome do arquétipo no formato no qual será adicionado na tabela.
-            arqAux = removeAspas(ctx.arquetipos().CADEIA().get(i).getText());
+            arqAux = converteTitulo(removeAspas(ctx.arquetipos().CADEIA().get(i).getText()));
             
             // Caso o arquétipo já exista na tabela, adiciona a mensagem de erro informando
             // a declaração repetida.
@@ -78,7 +79,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
         // Loop para percorrer a lista de elementos declarados.
         for (int i = 0; i < ctx.elementos().CADEIA().size(); i++) {
             // Obtenção do nome do elemento no formato no qual será adicionado na tabela.
-            eleAux = removeAspas(ctx.elementos().CADEIA().get(i).getText());
+            eleAux = converteTitulo(removeAspas(ctx.elementos().CADEIA().get(i).getText()));
             
             // Adiciona o elemento à lista, ignorando possíveis valores repetidos que possam
             // ter sido declarados por engano.
@@ -89,7 +90,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
             // Caso o elemento já exista na tabela, adiciona a mensagem de erro informando
             // a declaração repetida.
             if (tabela.existe(eleAux)) {
-                adicionaErroSemantico(ctx.elementos().getStart(), "O elemento \"" + eleAux + "\" ja foi definido anteriomente.");
+                adicionaErroSemantico(ctx.elementos().getStart(), "O elemento \"" + eleAux + "\" já foi definido anteriomente.");
                 
                 // Adiciona um erro do tipo adequado e sem repetições.
                 if (!errosEncontrados.contains(TipoDescritura.ESTRUTURA)) {
@@ -118,7 +119,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
 
         // Caso as listas tenham tamanhos diferentes, é informado que há uma discrepância entre elas.
         if (listaElementos.size() != listaElementosCapitulo.size()) {
-            adicionaErroSemLinha("\nHá uma discrepancia entre os elementos declarados e os que foram apresentados nos capitulos.");
+            adicionaErroSemLinha("\nHá uma discrepancia entre os elementos declarados e os que foram apresentados nos capítulos.");
             
             // Adiciona um erro do tipo adequado e sem repetições.
             if (!errosEncontrados.contains(TipoDescritura.ESTRUTURA)) {
@@ -127,7 +128,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
             
         // Caso as listas tenham o mesmo tamanho, é verificada a consistência entre elas.
         } else if (!ordemElementos(listaElementos, listaElementosCapitulo)) {
-            adicionaErroSemLinha("\nOs elementos apresentados nos capitulos nao estao na ordem na qual foram declarados.");
+            adicionaErroSemLinha("\nOs elementos apresentados nos capítulos não estão na ordem na qual foram declarados.");
             
             // Adiciona um erro do tipo adequado e sem repetições.
             if (!errosEncontrados.contains(TipoDescritura.ESTRUTURA)) {
@@ -157,15 +158,15 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
             // Caso apenas um único valor não tenha sido utilizado, é exibida uma mensagem no singular
             // referente ao tipo do valor em questão.
             if (naoUtilizados.size() == 1) {
-                nUtil = naoUtilizados.get(0);
+                nUtil = converteTitulo(naoUtilizados.get(0));
                 
                 // Verificação de cada tipo e exibição da mensagem adequada.
                 if (tabela.verificar(nUtil) == TipoDescritura.ARQUETIPO) {
-                    adicionaErroSemLinha("\nAtencao! O arquetipo \"" + nUtil + "\" nao foi utilizado em nenhum momento.");
+                    adicionaErroSemLinha("\nAtenção! O arquétipo \"" + nUtil + "\" não foi utilizado em nenhum momento.");
                 } else if (tabela.verificar(nUtil) == TipoDescritura.ELEMENTO) {
-                    adicionaErroSemLinha("\nAtencao! O elemento \"" + nUtil + "\" nao foi utilizado em nenhum momento.");
+                    adicionaErroSemLinha("\nAtenção! O elemento \"" + nUtil + "\" não foi utilizado em nenhum momento.");
                 } else if (tabela.verificar(nUtil) == TipoDescritura.PERSONAGEM) {
-                    adicionaErroSemLinha("\nAtencao! O personagem \"" + nUtil + "\" nao foi utilizado em nenhum momento.");
+                    adicionaErroSemLinha("\nAtenção! O personagem \"" + nUtil + "\" não foi utilizado em nenhum momento.");
                 }
             // Caso haja mais de um valor na lista, são verificados as quantidades referentes a cada um dos tipos
             // para a exibição de mensagens adequadas.
@@ -181,7 +182,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
                 
                 // É feita uma varredura dentre os valores que não foram utilizados.
                 for (int i = 0; i < naoUtilizados.size(); i++) {
-                    nUtil = naoUtilizados.get(i);
+                    nUtil = converteTitulo(naoUtilizados.get(i));
                     
                     // São verificados os tipos de cada valor não utilizado, de modo que seja possível
                     // adicionar seus respectivos nomes à mensagem de erro, além de verificações referentes
@@ -244,7 +245,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
         // Caso um personagem já tenha sido adicionado à tabela, é adicionado o erro
         // referente à sua declaração repetida.
         if (tabela.existe(idPers)) {
-            adicionaErroSemantico(ctx.getStart(), "O personagem " + idPers + " ja foi declarado anteriomente.");
+            adicionaErroSemantico(ctx.getStart(), "O personagem " + idPers + " já foi declarado anteriomente.");
             
             // Adiciona um erro do tipo adequado e sem repetições.
             if (!errosEncontrados.contains(TipoDescritura.PERSONAGEM)) {
@@ -255,15 +256,15 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
         }
 
         // String auxiliar que armaneza o arquétipo do personagem atual.
-        String arqAux = removeAspas(ctx.personagem().arquetipo().CADEIA().getText());
+        String arqAux = converteTitulo(removeAspas(ctx.personagem().arquetipo().CADEIA().getText()));
 
         // Caso o arquétipo não exista na tabela, é informado que ele não foi declarado.
         if (!tabela.existe(arqAux)) {
-            adicionaErroSemantico(ctx.personagem().arquetipo().getStart(), "O arquetipo \"" + arqAux + "\" nao foi declarado anteriomente.");
+            adicionaErroSemantico(ctx.personagem().arquetipo().getStart(), "O arquétipo \"" + arqAux + "\" não foi declarado anteriomente.");
         } else {
             // Caso o valor exista na tabela, é verificado se ele é um arquétipo de fato.
             if (tabela.verificar(arqAux) != TipoDescritura.ARQUETIPO) {
-                adicionaErroSemantico(ctx.personagem().arquetipo().getStart(), "\"" + arqAux + "\" nao e um arquetipo.");
+                adicionaErroSemantico(ctx.personagem().arquetipo().getStart(), "\"" + arqAux + "\" não é um arquetipo.");
                 
                 // Adiciona um erro do tipo adequado e sem repetições.
                 if (!errosEncontrados.contains(TipoDescritura.PERSONAGEM)) {
@@ -309,7 +310,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
             
             // Caso o identificador não exista na tabela, é informado que o personagem não foi declarado.
             if (!tabela.existe(idPers)) {
-                adicionaErroSemantico(ctx.personagens().getStart(), "O personagem " + idPers + " nao foi declarado anteriomente.");
+                adicionaErroSemantico(ctx.personagens().getStart(), "O personagem " + idPers + " não foi declarado anteriomente.");
                 
                 // Adiciona um erro do tipo adequado e sem repetições.
                 if (!errosEncontrados.contains(TipoDescritura.CAPITULO)) {
@@ -323,15 +324,15 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
         
         // Percorre a lista de elementos para identificar possíveis erros.
         for (int i = 0; i < ctx.elemento().CADEIA().size(); i++) {
-            nomeElem = removeAspas(ctx.elemento().CADEIA().get(i).getText());
+            nomeElem = converteTitulo(removeAspas(ctx.elemento().CADEIA().get(i).getText()));
             
             // Caso o elemento não exista na tabela, é informado que o elemento não foi declarado.
             if (!tabela.existe(nomeElem)) {
-                adicionaErroSemantico(ctx.elemento().getStart(), "O elemento \"" + nomeElem + "\" nao foi declarado anteriomente.");
+                adicionaErroSemantico(ctx.elemento().getStart(), "O elemento \"" + nomeElem + "\" não foi declarado anteriomente.");
             } else {
                 // Caso o valor exista na tabela, é verificado se ele é um elemento de fato.
                 if (tabela.verificar(nomeElem) != TipoDescritura.ELEMENTO) {
-                    adicionaErroSemantico(ctx.elemento().getStart(), "\"" + nomeElem + "\" nao e um elemento.");
+                    adicionaErroSemantico(ctx.elemento().getStart(), "\"" + nomeElem + "\" nao é um elemento.");
                     
                     // Adiciona um erro do tipo adequado e sem repetições.
                     if (!errosEncontrados.contains(TipoDescritura.CAPITULO)) {
@@ -381,7 +382,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
             // Caso o personagem já exista na tabela, é informado que o personagem foi declarado mais de uma vez
             // no capítulo atual.
             } else {
-                adicionaErroSemantico(ctx.personagens().getStart(), "O personagem " + idPers + " ja foi declarado no capitulo " + idCap + " (" + nomeCap + ").");
+                adicionaErroSemantico(ctx.personagens().getStart(), "O personagem " + idPers + " já foi declarado no capítulo " + idCap + " (" + nomeCap + ").");
                 
                 // Adiciona um erro do tipo adequado e sem repetições.
                 if (!errosEncontrados.contains(TipoDescritura.CAPITULO)) {
@@ -393,7 +394,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
         // Loop para percorrer a lista de elementos para identificar possíveis erros nas declarações
         // internas.
         for (int i = 0; i < ctx.elemento().CADEIA().size(); i++) {
-            nomeElem = removeAspas(ctx.elemento().CADEIA().get(i).getText());
+            nomeElem = converteTitulo(removeAspas(ctx.elemento().CADEIA().get(i).getText()));
 
             // Caso o elemento ainda não exista no escopo do capítulo atual, ele é adicionado à tabela.
             if (!tabela.existe(nomeElem)) {
@@ -401,7 +402,7 @@ public class DescrituraSemantico extends gramaticaBaseVisitor<Void> {
             } else {
             // Caso o elemento já exista na tabela, é informado que o elemento foi declarado mais de uma vez
             // no capítulo atual.
-                adicionaErroSemantico(ctx.elemento().getStart(), "O elemento \"" + nomeElem + "\" ja foi declarado no capitulo " + idCap + " (" + nomeCap + ").");
+                adicionaErroSemantico(ctx.elemento().getStart(), "O elemento \"" + nomeElem + "\" já foi declarado no capítulo " + idCap + " (" + nomeCap + ").");
                
                 // Adiciona um erro do tipo adequado e sem repetições.
                 if (!errosEncontrados.contains(TipoDescritura.CAPITULO)) {

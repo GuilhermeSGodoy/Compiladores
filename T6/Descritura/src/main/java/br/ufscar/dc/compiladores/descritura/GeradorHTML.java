@@ -431,10 +431,11 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             for (int i = 0; i < qtdeElem; i++) {
                 // Adiciona o elemento na lista de elementos do capítulo atual.
                 elemAtual = removeAspas(ctx.elemento().CADEIA().get(i).getText());
-                elems.add(elemAtual);
+                //elems.add(elemAtual);
 
                 // Converte o elemento para um título para as verificações seguintes.
                 elemAtual = converteTitulo(elemAtual);
+                elems.add(elemAtual);
                 
                 // A princípio, verifica se o elemento foi declarado.
                 if (tabela.existe(elemAtual)) {
@@ -482,11 +483,15 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             
             // Caso tenha apenas um elemento no capítulo, ele também é adiciona como uma lista
             // para manter a coerência de tipos.
-            elems.add(elemAtual);            
+            //elems.add(elemAtual);            
             elePorCap.put(nomeCap, elems);
+            
+            
 
             // Converte o elemento para um título para as verificações seguintes.
             elemAtual = converteTitulo(elemAtual);
+            
+            elems.add(elemAtual);
             
             // Verifica se o elemento foi declarado.
             if (tabela.existe(elemAtual)) {
@@ -707,7 +712,7 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         List<String> elementos = new ArrayList<>();
 
         for (TerminalNode ele : ctx.estrutura().elementos().CADEIA()) {
-            elementos.add(removeAspas(ele.getText()));
+            elementos.add(converteTitulo(removeAspas(ele.getText())));
         }
         
         // Lista auxiliar criada para armazenar os elementos na ordem na qual foram utilizados
@@ -730,7 +735,7 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             List<String> apareceCaps = new ArrayList<>();
             
             // Obtenção do elemento atual.
-            elemAtual = elementos.get(i);
+            elemAtual = converteTitulo(elementos.get(i));
             
             // Verificação necessária para o caso de o programa de entrada ter dois ou mais elementos
             // repetidos, de modo que a saída em html mostre a linha em destaque (itálico)
@@ -749,7 +754,7 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
                 
                 // A partir da lista de capítulos com seus respectivos elementos declarada anteriormente,
                 // são feitas verificações que identificam a presença do elemento no capítulo.
-                if (elePorCap.get(nomeCapAux).contains(elementos.get(i))) {
+                if (elePorCap.get(nomeCapAux).contains(converteTitulo(elementos.get(i)))) {
                     // Caso o elemento esteja presente no capítulo, o nome do capítulo é adicionado
                     // à nova lista auxiliar.
                     apareceCaps.add(nomeCapAux);
