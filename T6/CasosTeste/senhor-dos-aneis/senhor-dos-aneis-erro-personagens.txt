@@ -1,0 +1,102 @@
+{ Definição simplificada de uma estrutura para "O Senhor dos Anéis" }
+
+estrutura jornadaHeroi :
+   nome : "jornada do herói"
+   arquetipos : "herói", "mentor", "antagonista", "companheiro", "familiar"
+   elementos : "mundo cotidiano", "chamado", "recusa do chamado", "escolha", "primeiros desafios", "aliados", "aproximação da caverna oculta", "provação", "ressurreição", "retorno com o elixir"
+
+historia : 
+   nome : "O Senhor dos Anéis"
+   autor : "J. R. R. Tolkien"
+   sinopse : "Em uma terra fantástica e única, um hobbit recebe de presente de seu tio um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal."
+
+   personagem frodo : 
+      nome : "Frodo"
+
+      { Situação em que é utilizado um arquétipo que não foi declarado anteriormente. }
+      arquetipo : "anti-herói"
+
+   personagem sam :
+      nome : "Sam"
+      arquetipo : "companheiro"
+
+   personagem gandalf :
+      nome : "Gandalf"
+      arquetipo : "mentor"
+
+   personagem sauron :
+      nome : "Sauron"
+      arquetipo : "antagonista"
+
+   personagem bilbo :
+      nome : "Bilbo"
+
+      { Situação em que é utilizado um elemento como arquétipo. }
+      arquetipo : "mundo cotidiano"
+
+   { Situação em que é declarado um personagem com identificador repetido. Note que isso sobrescreverá o personagem anterior, de modo que, na saída em HTML, em todas as instâncias do identificador "sam" serão mostradas o nome "Pippin" }
+   personagem sam :
+      nome : "Pippin"
+
+      { Situação em que é utilizado um arquétipo que não foi declarado anteriormente. }
+      arquetipo : "Hobbit"
+
+   capitulo capitulo1 :
+      nome : "Uma Festa Muito Esperada"
+      sinopse : "Frodo vive sua vida cotidiana no condado."
+      elemento : "Mundo Cotidiano"
+      personagens : frodo, sam, bilbo, gandalf
+
+   capitulo capitulo2 :
+      nome : "A Sombra do Passado"
+      sinopse : "Frodo é encarregado de transportar um anel, mas recusa."
+      elemento : "Mundo Cotidiano", "Chamado", "Recusa do Chamado"
+      personagens : frodo, bilbo, gandalf
+
+   capitulo capitulo3 :
+      nome : "Três Não é Demais"
+      sinopse : "Frodo é convencido por Gandalf a realizar a tarefa."
+      elemento : "Escolha"
+      personagens : frodo, sam, gandalf
+
+   capitulo capitulo4 :
+      nome : "A Floresta Velha"
+      sinopse : "Frodo sai do condado com seu companheiro Sam e, juntos, ele vencem seus primeiros desafios."
+      elemento : "Primeiros Desafios"
+      personagens : frodo, sam
+
+   capitulo capitulo5 :
+      nome : "O Conselho de Elrond"
+      sinopse : "A Sociedade do Anel é criada para auxiliar Frodo em sua jornada."
+      elemento : "Aliados"
+      personagens : frodo, sam, gandalf
+
+   capitulo capitulo6 :
+      nome : "Uma Jornada no Escuro"
+      sinopse : "Frodo e Sam aproximam-se de seu destino final."
+      elemento : "Aproximação da Caverna Oculta"
+      personagens : frodo, sam, sauron
+
+   capitulo capitulo7 :
+      nome : "A Terra da Sombra"
+      sinopse : "Frodo sente-se tentado pelo poder do anel."
+      elemento : "Provação"
+      personagens : frodo, sauron
+
+   capitulo capitulo8 :
+      nome : "O Campo de Cormallen"
+      sinopse : "Frodo recupera-se e consegue cumprir seu objetivo, derrotando o mal."
+      elemento : "Ressurreição"
+      personagens : frodo, sam, gandalf, sauron
+
+   capitulo capitulo9 :
+      nome : "Muitas Despedidas"
+      sinopse : "Frodo retorna ao condado."
+      elemento : "Retorno Com O Elixir"
+      personagens : frodo, sam, gandalf
+
+   capitulo capitulo10 : 
+      nome : "Os Portos Cinzentos"
+      sinopse : "Frodo vai para as Terras Imortais para recuperar-se de sua jornada."
+      elemento : "Retorno Com O Elixir"
+      personagens : frodo, sam, bilbo, gandalf

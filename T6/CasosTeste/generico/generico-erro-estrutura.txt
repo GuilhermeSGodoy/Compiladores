@@ -1,0 +1,145 @@
+{ Declaração da estrutura. }
+estrutura idEstrutura :
+   nome : "nome da estrutura"
+   arquetipos : "arquétipo 1", "arquétipo 2", "arquétipo 1", "arquétipo 4", "arquétipo 5", "arquétipo 6", "arquétipo 7"
+   elementos : "elemento 1", "elemento 2", "elemento 3", "elemento 3", "elemento 5", "elemento 6", "elemento 7", "elemento 8", "elemento 9", "elemento 1", "elemento 11", "elemento 12", "elemento 13", "elemento 14", "elemento 15"
+
+{ Declaração da história. }
+historia : 
+   nome : "nome da história"
+   autor : "nome do autor 1", "nome do autor 2"
+   sinopse : "breve resumo da história."
+   versao : "1.0.2"
+   data : "23/09/2022"
+
+   { Declaração dos personagens. }
+   personagem personagem1 : 
+      nome : "nome do personagem 1"
+      arquetipo : "arquétipo 1"
+
+   personagem personagem2 :
+      nome : "nome do personagem 2"
+      arquetipo : "arquétipo 2"
+
+   personagem personagem3 :
+      nome : "nome do personagem 3"
+      arquetipo : "arquétipo 3"
+
+   personagem personagem4 :
+      nome : "nome do personagem 4"
+      arquetipo : "arquétipo 4"
+
+   personagem personagem5 :
+      nome : "nome do personagem 5"
+      arquetipo : "arquétipo 4"
+
+   personagem personagem6 :
+      nome : "nome do personagem 6"
+      arquetipo : "arquétipo 5"
+
+   personagem personagem7 :
+      nome : "nome do personagem 7"
+      arquetipo : "arquétipo 6"
+
+   personagem personagem8 :
+      nome : "nome do personagem 8"
+      arquetipo : "arquétipo 7"
+
+   personagem personagem9 :
+      nome : "nome do personagem 9"
+      arquetipo : "arquétipo 7"
+
+   personagem personagem10 :
+      nome : "nome do personagem 10"
+      arquetipo : "arquétipo 7"
+
+   { Declaração dos capítulos. }
+   capitulo capitulo1 :
+      nome : "nome do capítulo 1"
+      sinopse : "breve resumo do capítulo 1."
+      elemento : "elemento 1"
+      personagens : personagem1, personagem2, personagem3
+
+   capitulo capitulo2 :
+      nome : "nome do capítulo 2"
+      sinopse : "breve resumo do capítulo 2."
+      elemento : "elemento 1", "elemento 2"
+      personagens : personagem1, personagem2, personagem3, personagem4
+
+   capitulo capitulo3 :
+      nome : "nome do capítulo 3"
+      sinopse : "breve resumo do capítulo 3."
+      elemento : "elemento 3"
+      personagens : personagem1, personagem3, personagem5
+
+   capitulo capitulo4 :
+      nome : "nome do capítulo 4"
+      sinopse : "breve resumo do capítulo 4."
+      elemento : "elemento 4", "elemento 5"
+      personagens : personagem1, personagem2, personagem4, personagem6
+
+   capitulo capitulo5 :
+      nome : "nome do capítulo 5"
+      sinopse : "breve resumo do capítulo 5."
+      elemento : "elemento 5"
+      personagens : personagem1, personagem2, personagem6, personagem7
+
+   capitulo capitulo6 :
+      nome : "nome do capítulo 6"
+      sinopse : "breve resumo do capítulo 6."
+      elemento : "elemento 6"
+      personagens : personagem1, personagem2, personagem5
+
+   capitulo capitulo7 :
+      nome : "nome do capítulo 7"
+      sinopse : "breve resumo do capítulo 7."
+      elemento : "elemento 6", "elemento 7"
+      personagens : personagem1, personagem2, personagem3, personagem4
+
+   capitulo capitulo8 :
+      nome : "nome do capítulo 8"
+      sinopse : "breve resumo do capítulo 8."
+      elemento : "elemento 7", "elemento 8", "elemento 9"
+      personagens : personagem1, personagem2, personagem8
+
+   capitulo capitulo9 :
+      nome : "nome do capítulo 9"
+      sinopse : "breve resumo do capítulo 9."
+      elemento : "elemento 9"
+      personagens : personagem1, personagem3, personagem5, personagem8
+
+   capitulo capitulo10 :
+      nome : "nome do capítulo 10"
+      sinopse : "breve resumo do capítulo 10."
+      elemento : "elemento 10"
+      personagens : personagem1, personagem2, personagem3, personagem4, personagem5, personagem8
+
+   capitulo capitulo11 :
+      nome : "nome do capítulo 11"
+      sinopse : "breve resumo do capítulo 11."
+      elemento : "elemento 11", "elemento 12"
+      personagens : personagem1, personagem2, personagem3, personagem4, personagem5, personagem9, personagem10
+
+   capitulo capitulo12 :
+      nome : "nome do capítulo 12"
+      sinopse : "breve resumo do capítulo 12."
+      elemento : "elemento 12"
+      personagens : personagem1, personagem2, personagem5, personagem9
+
+   capitulo capitulo13 :
+      nome : "nome do capítulo 13"
+      sinopse : "breve resumo do capítulo 13."
+      elemento : "elemento 13"
+      personagens : personagem1, personagem9, personagem10
+
+   capitulo capitulo14 :
+      nome : "nome do capítulo 14"
+      sinopse : "breve resumo do capítulo 14."
+      elemento : "elemento 13", "elemento 14"
+      personagens : personagem1, personagem2, personagem3, personagem4, personagem5, personagem9
+
+   capitulo capitulo15 :
+      nome : "nome do capítulo 15"
+      sinopse : "breve resumo do capítulo 15."
+      elemento : "elemento 15"
+      personagens : personagem1, personagem2, personagem3, personagem4

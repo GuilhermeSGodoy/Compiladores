@@ -165,11 +165,11 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             saida.append("<div class=\"container mt-5\">\n");
             if (DescrituraSemantico.errosEncontrados.size() == 1) {
                 if (DescrituraSemantico.errosEncontrados.get(0) == TipoDescritura.ESTRUTURA) {
-                    saida.append("<h3 class=\"h3\">Atenção! Foi encontrado um erro na declaração da estrutura. Por favor, verifique o arquivo log.txt.</h3>\n");
+                    saida.append("<h3 class=\"h3\">Atenção! Foram encontrados erros na declaração da estrutura. Por favor, verifique o arquivo log.txt.</h3>\n");
                 } else if (DescrituraSemantico.errosEncontrados.get(0) == TipoDescritura.PERSONAGEM) {
-                    saida.append("<h3 class=\"h3\">Atenção! Foi encontrado um erro na declaração dos personagens. Por favor, verifique o arquivo log.txt.</h3>\n");
+                    saida.append("<h3 class=\"h3\">Atenção! Foram encontrados erros na declaração dos personagens. Por favor, verifique o arquivo log.txt.</h3>\n");
                 } else if (DescrituraSemantico.errosEncontrados.get(0) == TipoDescritura.CAPITULO) {
-                    saida.append("<h3 class=\"h3\">Atenção! Foi encontrado um erro na declaração dos capítulos. Por favor, verifique o arquivo log.txt.</h3>\n");
+                    saida.append("<h3 class=\"h3\">Atenção! Foram encontrados erros na declaração dos capítulos. Por favor, verifique o arquivo log.txt.</h3>\n");
                 }
             } else {
                 // Caso tenham sido identificados erros de mais de um tipo, é exibida uma mensagem personalizada
@@ -429,12 +429,9 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         // adequadamente.
         if (qtdeElem > 1) {
             for (int i = 0; i < qtdeElem; i++) {
-                // Adiciona o elemento na lista de elementos do capítulo atual.
-                elemAtual = removeAspas(ctx.elemento().CADEIA().get(i).getText());
-                //elems.add(elemAtual);
-
-                // Converte o elemento para um título para as verificações seguintes.
-                elemAtual = converteTitulo(elemAtual);
+                // Adiciona o elemento na lista de elementos do capítulo atual e o converte em um
+                // título para as verificações seguintes.
+                elemAtual = converteTitulo(removeAspas(ctx.elemento().CADEIA().get(i).getText()));
                 elems.add(elemAtual);
                 
                 // A princípio, verifica se o elemento foi declarado.
@@ -479,19 +476,13 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
             elePorCap.put(nomeCap, elems);
         // Caso haja apenas um elemento, ele é exibido normalmente.    
         } else {
-            elemAtual = removeAspas(ctx.elemento().CADEIA().get(0).getText());
+            // Converte o elemento para um título para as verificações seguintes.
+            elemAtual = converteTitulo(removeAspas(ctx.elemento().CADEIA().get(0).getText()));
+            elems.add(elemAtual);
             
             // Caso tenha apenas um elemento no capítulo, ele também é adiciona como uma lista
-            // para manter a coerência de tipos.
-            //elems.add(elemAtual);            
+            // para manter a coerência de tipos.     
             elePorCap.put(nomeCap, elems);
-            
-            
-
-            // Converte o elemento para um título para as verificações seguintes.
-            elemAtual = converteTitulo(elemAtual);
-            
-            elems.add(elemAtual);
             
             // Verifica se o elemento foi declarado.
             if (tabela.existe(elemAtual)) {
@@ -530,6 +521,14 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
         // String auxiliar que armazena o identificador do personagem.
         String idPers;
         
+        // Lista auxiliar para verificar se um personagem já foi declarado no capítulo
+        // atual.
+        List<String> persCapAtual = new ArrayList<>();
+        
+        // Flag auxiliar para verificar se é necessário fechar a tag que destaca o
+        // nome de um personagem repetido.
+        boolean fecha = false;
+        
         // Caso o capítulo tenha mais do que um personagem, são feitas verificações para
         // separar seus nomes por vírgulas.
         if (qtdePersCap > 1) {
@@ -539,6 +538,13 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
                 // seus identificadores.
                 idPers = ctx.personagens().personagemDec().get(i).getText();
                 nomePersAux = nomesPers.get(idPers);
+                
+                if (!persCapAtual.contains(idPers)) {
+                    persCapAtual.add(idPers);
+                } else {
+                    fecha = true;
+                    saida.append("<i>");
+                }
                 
                 // Caso o identificador atual tenha um nome relacionado, ou seja, foi declarado
                 // de fato, seu nome é adicionado à lista de personagens do capítulo atual e
@@ -558,7 +564,11 @@ public class GeradorHTML extends gramaticaBaseVisitor<Void> {
                 // Verificação necessária para a inclusão de vírgulas entre os nomes dos personagens.
                 if (i + 1 < qtdePersCap) {
                     saida.append(", ");
-                } 
+                }
+                
+                if (fecha) {
+                    saida.append("</i>");
+                }
             }
             
             // Adiciona a lista de personagens ao capítulo associado.

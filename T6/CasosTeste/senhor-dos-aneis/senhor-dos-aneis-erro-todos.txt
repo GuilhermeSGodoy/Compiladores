@@ -1,0 +1,127 @@
+{ Definição simplificada de uma estrutura para "O Senhor dos Anéis" }
+
+{ Este caso de teste apresenta os erros já descritos nos outros casos de teste, unidos em um só. }
+
+estrutura jornadaHeroi :
+   { Note que, para títulos e nomes, o compilador faz a conversão necessária para deixá-los capitalizados. }
+   nome : "jorNada dO Herói"
+
+   { Situação em que um mesmo arquétipo é definido mais de uma vez, no caso, "Mentor". }
+   arquetipos : "herói", "mentor", "antagonista", "companheiro", "mentor", "familiar"
+
+   { Situação em que um mesmo elemento é definido mais de uma vez, no caso, "Chamado" e "Mundo Cotidiano". }
+   elementos : "mundo cotidiano", "chamado", "recusa do chamado", "escolha", "chamado", "primeiros desafios", "aliados", "aproximação da caverna oculta", "provação", "ressurreição", "retorno com o elixir", "mundo cotidiano"
+
+   { Como alguns dos elementos aqui declarados não são usados nos capítulos, será gerado um outro tipo de erro de estrutura. }
+
+historia : 
+   nome : "O Senhor dos Anéis"
+   autor : "J. R. R. Tolkien"
+   sinopse : "Em uma terra fantástica e única, um hobbit recebe de presente de seu tio um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal."
+
+   personagem frodo : 
+      nome : "Frodo"
+
+      { Situação em que é utilizado um arquétipo que não foi declarado anteriormente. }
+      arquetipo : "anti-herói"
+
+   personagem sam :
+      nome : "Sam"
+      arquetipo : "companheiro"
+
+   personagem gandalf :
+      nome : "Gandalf"
+      arquetipo : "mentor"
+
+   personagem sauron :
+      nome : "Sauron"
+
+      { Situação em que é utilizado um arquétipo que não foi declarado anteriormente. }
+      arquetipo : "vilão"
+
+   { Note que este personagem não está sendo utilizado. }
+   personagem bilbo :
+      nome : "Bilbo"
+
+      { Situação em que é utilizado um elemento como arquétipo. }
+      arquetipo : "mundo cotidiano"
+
+   { Situação em que é declarado um personagem com identificador repetido. Note que isso sobrescreverá o personagem anterior, de modo que, na saída em HTML, em todas as instâncias do identificador "sam" serão mostradas o nome "Pippin" }
+   personagem sam :
+      nome : "Pippin"
+      arquetipo : "Companheiro"
+
+   capitulo capitulo1 :
+      nome : "Uma Festa Muito Esperada"
+      sinopse : "Frodo vive sua vida cotidiana no condado."
+
+      { Situação em que são declarados dois elementos repetidos no mesmo capítulo. Note que um mesmo elemento pode aparecer em diferentes capítulos. }
+      elemento : "Mundo Cotidiano", "Mundo Cotidiano"
+      personagens : frodo, sam, gandalf
+
+   capitulo capitulo2 :
+      nome : "A Sombra do Passado"
+      sinopse : "Frodo é encarregado de transportar um anel, mas recusa."
+
+      { Situação em que é utilizada uma palavra que não foi declarada como elemento, no caso, "Herói". Note que isso também gera um erro de estrutura, visto que a estrutura declarada ao longo dos capítulos é diferente da que foi declarada no início. }
+      elemento : "Mundo Cotidiano", "Herói", "Recusa do Chamado"
+      personagens : frodo, gandalf
+
+   capitulo capitulo3 :
+      nome : "Três Não é Demais"
+      sinopse : "Frodo é convencido por Gandalf a realizar a tarefa."
+      elemento : "Escolha"
+      personagens : frodo, sam, gandalf
+
+   capitulo capitulo4 :
+      nome : "A Floresta Velha"
+      sinopse : "Frodo sai do condado com seu companheiro Sam e, juntos, ele vencem seus primeiros desafios."
+
+      { Situação em que é utilizada uma palavra que não foi declarada como elemento, no caso, "Herói". }
+      elemento : "Antagonista"
+      personagens : frodo, sam
+
+   capitulo capitulo5 :
+      nome : "O Conselho de Elrond"
+      sinopse : "A Sociedade do Anel é criada para auxiliar Frodo em sua jornada."
+      elemento : "Aliados"
+      personagens : frodo, sam, gandalf
+
+   capitulo capitulo6 :
+      nome : "Uma Jornada no Escuro"
+      sinopse : "Frodo e Sam aproximam-se de seu destino final."
+      elemento : "Aproximação da Caverna Oculta"
+      personagens : frodo, sam, sauron
+
+   capitulo capitulo7 :
+      nome : "A Terra da Sombra"
+      sinopse : "Frodo sente-se tentado pelo poder do anel."
+      elemento : "Provação"
+
+      { Situação em que é utilizado um personagem que não foi declarado, no caso, "gollum". }
+      personagens : frodo, sauron, gollum
+
+   capitulo capitulo8 :
+      nome : "O Campo de Cormallen"
+      sinopse : "Frodo recupera-se e consegue cumprir seu objetivo, derrotando o mal."
+
+      { Situação em que é utilizado um elemento que não foi estabelecido anteriomente. }
+      elemento : "Batalha"
+
+      { Situação em que é utilizado um personagem que não foi declarado, no caso, "aragorn". }
+      personagens : frodo, sam, gandalf, sauron, aragorn
+
+   { Situação em que é declarado um capítulo com um identificador repetido. }
+   capitulo capitulo8 :
+      nome : "Muitas Despedidas"
+      sinopse : "Frodo retorna ao condado."
+      elemento : "Retorno Com O Elixir"
+      personagens : frodo, sam, gandalf
+
+   capitulo capitulo10 : 
+      nome : "Os Portos Cinzentos"
+      sinopse : "Frodo vai para as Terras Imortais para recuperar-se de sua jornada."
+      elemento : "Retorno Com O Elixir"
+
+      { Situação em que um mesmo personagem é declarado mais de uma vez em um capítulo, no caso, "frodo". }
+      personagens : frodo, sam, frodo, gandalf
