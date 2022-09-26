@@ -1,0 +1,5 @@
+Linha 7: O arquétipo "Herói" já foi definido anteriomente.
+Linha 10: O elemento "Chamado" já foi definido anteriomente.
+Linha 10: O elemento "Mundo Cotidiano" já foi definido anteriomente.
+
+Os elementos apresentados nos capítulos não estão na ordem na qual foram declarados.

@@ -1,0 +1,8 @@
+Linha 17: O arquétipo "Anti-herói" não foi declarado anteriomente.
+Linha 35: "Mundo Cotidiano" não é um arquétipo.
+Linha 38: O personagem Sam já foi declarado anteriomente.
+Linha 42: O arquétipo "Hobbit" não foi declarado anteriomente.
+
+Atenção! Os seguintes dados foram declarados e não utilizados:
+Arquétipos: Familiar, Herói
+

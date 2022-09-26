@@ -1,0 +1,7 @@
+Linha 18: O arquétipo "Arquétipo -1" não foi declarado anteriomente.
+Linha 32: O personagem Personagem1 já foi declarado anteriomente.
+Linha 34: O arquétipo "Arquétipo 42" não foi declarado anteriomente.
+Linha 46: "Elemento 8" não é um arquétipo.
+Linha 73: O personagem Personagem5 não foi declarado anteriomente.
+
+Atenção! O arquétipo "Arquétipo 1" não foi utilizado em nenhum momento.

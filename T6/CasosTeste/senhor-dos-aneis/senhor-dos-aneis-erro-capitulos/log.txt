@@ -1,0 +1,14 @@
+Linha 39: O elemento "Mundo Cotidiano" já foi declarado no capítulo capitulo1 (Uma Festa Muito Esperada).
+Linha 47: "Herói" não é um elemento.
+Linha 61: "Antagonista" não é um elemento.
+Linha 82: O personagem Gollum não foi declarado anteriomente.
+Linha 89: O elemento "Batalha" não foi declarado anteriomente.
+Linha 92: O personagem Aragorn não foi declarado anteriomente.
+Linha 95: O capitulo capitulo8 ja foi declarado anteriomente.
+Linha 107: O personagem Frodo já foi declarado no capítulo capitulo10 (Os Portos Cinzentos).
+
+Há uma discrepância entre os elementos declarados e os que foram apresentados nos capítulos.
+
+Atenção! Os seguintes dados foram declarados e não utilizados:
+Elementos: Ressurreição, Chamado, Primeiros Desafios
+

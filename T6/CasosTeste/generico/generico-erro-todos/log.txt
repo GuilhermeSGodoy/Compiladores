@@ -1,0 +1,27 @@
+Linha 4: O arquétipo "Arquétipo 1" já foi definido anteriomente.
+Linha 5: O elemento "Elemento 3" já foi definido anteriomente.
+Linha 5: O elemento "Elemento 1" já foi definido anteriomente.
+Linha 18: O arquétipo "Arquétipo -1" não foi declarado anteriomente.
+Linha 26: O arquétipo "Arquétipo 3" não foi declarado anteriomente.
+Linha 32: O personagem Personagem1 já foi declarado anteriomente.
+Linha 34: O arquétipo "Arquétipo 42" não foi declarado anteriomente.
+Linha 46: "Elemento 8" não é um arquétipo.
+Linha 60: O elemento "Elemento 0" não foi declarado anteriomente.
+Linha 63: O capitulo capitulo1 ja foi declarado anteriomente.
+Linha 67: O personagem Personagem0 não foi declarado anteriomente.
+Linha 72: O elemento "Elemento 4" não foi declarado anteriomente.
+Linha 73: O personagem Personagem5 não foi declarado anteriomente.
+Linha 78: "Arquétipo 4" não é um elemento.
+Linha 90: O elemento "Elemento 16" não foi declarado anteriomente.
+Linha 91: O personagem Personagem11 não foi declarado anteriomente.
+Linha 114: O elemento "Elemento 10" não foi declarado anteriomente.
+Linha 121: O personagem Personagem2 já foi declarado no capítulo capitulo11 (Nome Do Capítulo 11).
+Linha 144: O elemento "Elemento 17" não foi declarado anteriomente.
+
+Há uma discrepância entre os elementos declarados e os que foram apresentados nos capítulos.
+
+Atenção! Os seguintes dados foram declarados e não utilizados:
+Arquétipos: Arquétipo 1
+Elementos: Elemento 3, Elemento 14
+Personagens: Personagem6
+

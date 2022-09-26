@@ -1,0 +1,23 @@
+Linha 10: O arquétipo "Mentor" já foi definido anteriomente.
+Linha 13: O elemento "Chamado" já foi definido anteriomente.
+Linha 13: O elemento "Mundo Cotidiano" já foi definido anteriomente.
+Linha 26: O arquétipo "Anti-herói" não foi declarado anteriomente.
+Linha 40: O arquétipo "Vilão" não foi declarado anteriomente.
+Linha 47: "Mundo Cotidiano" não é um arquétipo.
+Linha 50: O personagem Sam já foi declarado anteriomente.
+Linha 59: O elemento "Mundo Cotidiano" já foi declarado no capítulo capitulo1 (Uma Festa Muito Esperada).
+Linha 67: "Herói" não é um elemento.
+Linha 81: "Antagonista" não é um elemento.
+Linha 102: O personagem Gollum não foi declarado anteriomente.
+Linha 109: O elemento "Batalha" não foi declarado anteriomente.
+Linha 112: O personagem Aragorn não foi declarado anteriomente.
+Linha 115: O capitulo capitulo8 ja foi declarado anteriomente.
+Linha 127: O personagem Frodo já foi declarado no capítulo capitulo10 (Os Portos Cinzentos).
+
+Há uma discrepância entre os elementos declarados e os que foram apresentados nos capítulos.
+
+Atenção! Os seguintes dados foram declarados e não utilizados:
+Arquétipos: Antagonista, Familiar, Herói
+Elementos: Ressurreição, Chamado, Primeiros Desafios
+Personagens: Bilbo
+

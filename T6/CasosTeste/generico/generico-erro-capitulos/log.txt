@@ -1,0 +1,15 @@
+Linha 60: O elemento "Elemento 0" não foi declarado anteriomente.
+Linha 63: O capitulo capitulo1 ja foi declarado anteriomente.
+Linha 67: O personagem Personagem0 não foi declarado anteriomente.
+Linha 78: "Arquétipo 3" não é um elemento.
+Linha 90: O elemento "Elemento 16" não foi declarado anteriomente.
+Linha 91: O personagem Personagem11 não foi declarado anteriomente.
+Linha 121: O personagem Personagem2 já foi declarado no capítulo capitulo11 (Nome Do Capítulo 11).
+Linha 144: O elemento "Elemento 17" não foi declarado anteriomente.
+
+Há uma discrepância entre os elementos declarados e os que foram apresentados nos capítulos.
+
+Atenção! Os seguintes dados foram declarados e não utilizados:
+Elementos: Elemento 3, Elemento 14
+Personagens: Personagem6
+

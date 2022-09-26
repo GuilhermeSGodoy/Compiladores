@@ -1,0 +1,6 @@
+Linha 4: O arquétipo "Arquétipo 1" já foi definido anteriomente.
+Linha 5: O elemento "Elemento 3" já foi definido anteriomente.
+Linha 5: O elemento "Elemento 1" já foi definido anteriomente.
+Linha 26: O arquétipo "Arquétipo 3" não foi declarado anteriomente.
+Linha 78: O elemento "Elemento 4" não foi declarado anteriomente.
+Linha 114: O elemento "Elemento 10" não foi declarado anteriomente.
