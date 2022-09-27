@@ -17,15 +17,15 @@ Neste repositório encontra-se o sexto e último trabalho da disciplina Constru�
 ## Introdução
 <a name="intro"/>
 
-Descritura é uma linguagem que pode ser utilizada para a declaração de estruturas de textos literários, a partir dos elementos que comporão a história e seus personagens, que são apresentados em capítulos. Após a utilização do compilador, é gerado um arquivo .html que exibe as informações de forma detalhada, em listas e tabelas, além da geração de um arquivo descrevendo erros no programa de entrada, caso existam, que também são destacadas na página html gerada.
+Descritura é uma linguagem que pode ser utilizada para a declaração de estruturas de textos literários, a partir dos elementos que comporão a história e seus personagens, que são apresentados em capítulos. Após a utilização do compilador, é gerado um arquivo .html que exibe as informações de forma detalhada, em listas e tabelas, além da geração de um arquivo descrevendo erros no programa de entrada, caso existam, que também são destacados na página html gerada.
 
 ## Projeto da Linguagem
 <a name="proj"/>
 
 A gramática da linguagem foi desenvolvida para suportar programas divididos em três seções:
 - Declaração de estrutura: onde são estabelecidos os elementos que serão apresentados nos capítulos e os arquétipos utilizados nos personagens;
-- Declaração de personagens: onde são declarados os personagens da história, a partir de um identificador interno ao programa que armazena o nome do personagem e seu arquétipo;
-- Declaração de capítulo: onde são declarados os capítulos da história, a partir de um identificador interno ao programa que armazena o nome do capítulo, uma breve sinopse, a lista de elementos e a lista de personagens.
+- Declaração de personagens: onde são declarados os personagens da história, a partir de um identificador interno ao programa que referencia o nome do personagem e seu arquétipo;
+- Declaração de capítulo: onde são declarados os capítulos da história, a partir de um identificador interno ao programa que referencia o nome do capítulo, uma breve sinopse, a lista de elementos e a lista de personagens.
 
 Com estas informações, espera-se que sejam construídos programas que obedeçam as informações declaradas na estrutura e sejam coerentes com a estrutura e personagens previamente declarados. Para informações mais detalhadas sobre a linguagem, recomenda-se conferir o arquivo [com a definição da gramática](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Descritura/src/main/antlr4/br/ufscar/dc/compiladores/descritura/gramatica.g4).
 
@@ -53,7 +53,7 @@ A seção de estrutura, delimitada pela palavra-chave "estrutura", deve ter um i
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/historia.png)
 
-A seção de história, delimitada pela palavra-chave "historia", deve ter o nome da história, nome do autor (pode ser uma lista de autores) e uma sinopse. Também pode ser complementada por atributos opcionais de versão e data da última atualização.
+A seção de história, delimitada pela palavra-chave "historia", deve ter o nome da história, nome do autor (pode ser uma lista de autores, separados por vírgulas) e uma sinopse. Também pode ser complementada por atributos opcionais de versão e data da última atualização.
 
 - Personagem
 
@@ -97,7 +97,7 @@ Após a utilização do compilador para análise de um determinado programa de e
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/log-certo.png)
 
-O arquivo log.txt apresenta o resultado da análise semântica efetuada pelo compilador. Para o caso de teste apresentado anteriormente, a saída consta que não foram identificados erros. A seguir, é apresentado um log com alguns dos erros que podem ser identificados pelo compilador, referente a [este](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-erro-capitulos/senhor-dos-aneis-erro-capitulos.txt) caso de teste:
+O arquivo log.txt apresenta o resultado da análise semântica efetuada pelo compilador. Para o caso de teste apresentado anteriormente, a saída consta que não foram identificados erros. A seguir, é apresentado um log com alguns dos erros que podem ser identificados pelo compilador, referente a [este](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-erro-personagens/senhor-dos-aneis-erro-personagens.txt) caso de teste:
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/log-erro.png)
 
@@ -105,7 +105,7 @@ O arquivo log.txt apresenta o resultado da análise semântica efetuada pelo com
 
 O arquivo index.html apresenta o resultado da geração de código executada pelo compilador, sendo composto por uma página personalizada para cada caso de teste, contendo as informações declaradas no caso de entrada dipostas em listas e/ou tabelas.
 
-Ao abrir a página gerada, o usuário se depara com algo similar ao que é gerado para o caso de testes apresentado inicialmente:
+Ao abrir a página gerada, o usuário se depara com algo similar ao que é gerado para o caso de teste apresentado inicialmente:
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-certo-1.png)
 
@@ -123,7 +123,7 @@ Caso o compilador identifique algum erro no programa de entrada, além do detalh
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-erro-1.png)
 
-E, ao final da página, é destacada seção na qual foi encontrado o erro (caso haja erros em mais de uma seção, é apresentada uma lista com as seções que contêm pelo menos um erro):
+E, ao final da página, é destacada a seção na qual foi encontrado o erro (caso existam erros em mais de uma seção, é apresentada uma lista com as seções que contêm pelo menos um erro):
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-erro-2.png)
 
@@ -132,9 +132,9 @@ O código completo de uma página gerada a partir de um caso com erros pode ser 
 ## Vídeo Demonstrativo
 <a name="video"/>
 
-[Aqui](https://www.youtube.com/watch?v=-mDC5GVmI6E) pode ser encontrado um breve vídeo que demonstra a maneira de utilização do compilador a partir de alguns dos casos de teste apresentados aqui.
+[Aqui](https://www.youtube.com/watch?v=-mDC5GVmI6E) pode ser encontrado um breve vídeo que demonstra a maneira de utilização do compilador a partir de alguns dos casos de teste apresentados neste repositório.
 
 ## Futuro do Projeto
 <a name="futuro"/>
 
-Para versões futuras deste projeto, espera-se que sejam adicionados suportes para outros tipos de texto, como roteiros e artigos acadêmicos.
+Para versões futuras deste projeto, espera-se que sejam adicionados suportes para outros tipos de texto, como roteiros e artigos acadêmicos, além de novas funções para maior detalhamento de suas estruturas.
