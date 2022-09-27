@@ -132,7 +132,7 @@ O código completo de uma página gerada a partir de um caso com erros pode ser 
 ## Vídeo Demonstrativo
 <a name="video"/>
 
-...
+[Aqui](https://www.youtube.com/watch?v=-mDC5GVmI6E) pode ser encontrado um breve vídeo que demonstra a maneira de utilização do compilador a partir de alguns dos casos de teste apresentados aqui.
 
 ## Futuro do Projeto
 <a name="futuro"/>
