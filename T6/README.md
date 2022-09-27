@@ -67,7 +67,7 @@ Em seguida, ainda na seção de história, são declarados os personagens, delim
 
 Por fim, completando a seção de história, os capítulos devem ser declarados a partir da palavra-chave "capitulo" e um identificador, e devem ser compostos pelo nome do capítulo, uma breve sinopse, um ou mais elementos, desde que não sejam repetidos e respeitem a ordem da declaração anterior, e a lista dos personagens presentes no capítulo, que devem ser representados por seus identificadores.
 
-Um exemplo completo e correto da programa aceito pela linguagem pode ser conferido [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-certo/senhor-dos-aneis-certo.txt).
+Um exemplo completo e correto de um programa aceito pela linguagem pode ser conferido [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-certo/senhor-dos-aneis-certo.txt).
 
 ## Uso do Compilador
 <a name="uso"/>
@@ -119,7 +119,7 @@ Ao final da página, é apresentada a informação de que não foram encontrados
 
 O código completo desta página pode ser conferido [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-certo/index.html) e sua visualização pode ser feita [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-certo/index.pdf).
 
-Caso o compilador identifique algum erro no programa de entrada, além do detalhamento no log.txt, as inconsistência também são detalhadas na página gerada: 
+Caso o compilador identifique algum erro no programa de entrada, além do detalhamento no log.txt, as inconsistências também são detalhadas na página gerada: 
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-erro-1.png)
 
