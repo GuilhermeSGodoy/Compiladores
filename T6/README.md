@@ -97,9 +97,37 @@ Após a utilização do compilador para análise de um determinado programa de e
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/log-certo.png)
 
-O arquivo log.txt apresenta o resultado da análise semântica efetuada pelo compilador. Para o caso de teste apresentado anteriormente, a saída consta que não foram identificados erros. A seguir, é apresentado um log com alguns dos erros que podem ser identificados pelo compilador, refere a [este](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-erro-capitulos/senhor-dos-aneis-erro-capitulos.txt) caso de teste:
+O arquivo log.txt apresenta o resultado da análise semântica efetuada pelo compilador. Para o caso de teste apresentado anteriormente, a saída consta que não foram identificados erros. A seguir, é apresentado um log com alguns dos erros que podem ser identificados pelo compilador, referente a [este](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-erro-capitulos/senhor-dos-aneis-erro-capitulos.txt) caso de teste:
 
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/log-erro.png)
+
+- index.html
+
+O arquivo index.html apresenta o resultado da geração de código executada pelo compilador, sendo composto por uma página personalizada para cada caso de teste, contendo as informações declaradas no caso de entrada dipostas em listas e/ou tabelas.
+
+Ao abrir a página gerada, o usuário se depara com algo similar ao que é gerado para o caso de testes apresentado inicialmente:
+
+![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-certo-1.png)
+
+As informações referentes aos capítulos são apresentadas em uma tabela:
+
+![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-certo-2.png)
+
+Ao final da página, é apresentada a informação de que não foram encontrados erros:
+
+![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-certo-3.png)
+
+O código completo desta página pode ser conferido [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-certo/index.html) e sua visualização pode ser feita [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-certo/index.pdf).
+
+Caso o compilador identifique algum erro no programa de entrada, além do detalhamento no log.txt, as inconsistência também são detalhadas na página gerada: 
+
+![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-erro-1.png)
+
+E, ao final da página, é destacada seção na qual foi encontrado o erro (caso haja erros em mais de uma seção, é apresentada uma lista com as seções que contêm pelo menos um erro):
+
+![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-erro-2.png)
+
+O código completo de uma página gerada a partir de um caso com erros pode ser conferido [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-erro-estrutura/index.html) e sua visualização pode ser feita [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-erro-estrutura/index.pdf).
 
 ## Vídeo Demonstrativo
 <a name="video"/>
@@ -109,4 +137,4 @@ O arquivo log.txt apresenta o resultado da análise semântica efetuada pelo com
 ## Futuro do Projeto
 <a name="futuro"/>
 
-...
+Para versões futuras deste projeto, espera-se que sejam adicionados suportes para outros tipos de texto, como roteiros e artigos acadêmicos.
