@@ -12,7 +12,7 @@ historia :
    autor : "J. R. R. Tolkien"
    sinopse : "Em uma terra fantástica e única, um hobbit recebe de presente de seu tio um anel mágico e maligno que precisa ser destruído antes que caia nas mãos do mal."
 
-   { Declaração alguns de personagens. }
+   { Declaração de alguns personagens. }
    personagem frodo : 
       nome : "Frodo"
       arquetipo : "herói"
