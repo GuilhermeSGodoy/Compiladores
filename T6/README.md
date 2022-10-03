@@ -10,7 +10,6 @@ Neste repositório encontra-se o sexto e último trabalho da disciplina Constru�
     <li><a href="#casos">Casos de Teste e Estrutura de Programas da Linguagem</a></li>
     <li><a href="#uso">Uso do Compilador</a></li>
     <li><a href="#saida">Saídas e Resultados</a></li>
-    <li><a href="#video">Vídeo Demonstrativo</a></li>
     <li><a href="#futuro">Futuro do Projeto</a></li>
   </ol>
 
@@ -128,11 +127,6 @@ E, ao final da página, é destacada a seção na qual foi encontrado o erro (ca
 ![alt text](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/Imagens/html-erro-2.png)
 
 O código completo de uma página gerada a partir de um caso com erros pode ser conferido [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-erro-estrutura/index.html) e sua visualização pode ser feita [aqui](https://github.com/GuilhermeSGodoy/Construcao-Compiladores/blob/main/T6/CasosTeste/senhor-dos-aneis/senhor-dos-aneis-erro-estrutura/index.pdf).
-
-## Vídeo Demonstrativo
-<a name="video"/>
-
-[Aqui](https://www.youtube.com/watch?v=-mDC5GVmI6E) pode ser encontrado um breve vídeo que demonstra a maneira de utilização do compilador a partir de alguns dos casos de teste apresentados neste repositório.
 
 ## Futuro do Projeto
 <a name="futuro"/>
